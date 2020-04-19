@@ -14,6 +14,14 @@
 <input type="date" name="report_date" value="<fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' />" />
 <br /><br />
 
+<label for="clockin">出勤時刻</label><br />
+<input type="time" name="clockin" value="${report.clockin}" />
+<br /><br />
+
+<label for="clockin">退勤時刻</label><br />
+<input type="time" name="clockout" value="${report.clockout}" />
+<br /><br />
+
 <label for="name">氏名</label><br />
 <c:out value="${sessionScope.login_employee.name}" />
 <br /><br />
