@@ -15,11 +15,11 @@
 <br /><br />
 
 <label for="clockin">出勤時刻</label><br />
-<input type="time" name="clockin" value="${report.clockin}" />
+<input type="text" name="clockin" size="2.5" value="${report.clockin}" />
 <br /><br />
 
-<label for="clockin">退勤時刻</label><br />
-<input type="time" name="clockout" value="${report.clockout}" />
+<label for="clockout">退勤時刻</label><br />
+<input type="text" name="clockout" size="2.5" value="${report.clockout}" />
 <br /><br />
 
 <label for="name">氏名</label><br />

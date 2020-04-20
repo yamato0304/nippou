@@ -51,10 +51,14 @@ public class ReportsCreateServlet extends HttpServlet {
                 report_date = Date.valueOf(request.getParameter("report_date"));
             }
             r.setReport_date(report_date);
-
-
+            String clock_in = request.getParameter("clockin");
+            Integer clockin = Integer.valueOf(clock_in);
+            String clock_out = request.getParameter("clockout");
+            Integer clockout = Integer.valueOf(clock_out);
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
+            r.setclockin(clockin);
+            r.setclockout(clockout);
 
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());

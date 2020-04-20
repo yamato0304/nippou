@@ -43,9 +43,15 @@ public class ReportsUpdateServlet extends HttpServlet {
             Report r = em.find(Report.class, (Integer)(request.getSession().getAttribute("report_id")));
 
             r.setReport_date(Date.valueOf(request.getParameter("report_date")));
+            String clock_in = request.getParameter("clockin");
+            Integer clockin = Integer.valueOf(clock_in);
+            String clock_out = request.getParameter("clockout");
+            Integer clockout = Integer.valueOf(clock_out);
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
             r.setUpdated_at(new Timestamp(System.currentTimeMillis()));
+            r.setclockin(clockin);
+            r.setclockout(clockout);
 
             List<String> errors = ReportValidator.validate(r);
             if(errors.size() > 0) {
@@ -54,6 +60,7 @@ public class ReportsUpdateServlet extends HttpServlet {
                 request.setAttribute("_token", request.getSession().getId());
                 request.setAttribute("report", r);
                 request.setAttribute("errors", errors);
+                request.setAttribute("clockin", r);
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/edit.jsp");
                 rd.forward(request, response);
